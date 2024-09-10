@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill The Form</title>
+</head>
+<body>
+    <h1>Fill The Student Form</h1>
+    {% if messages %}
+      {% for i in messages %}
+          <h2 style="color:brown">{{i}}</h2>
+       {% endfor  %}
+    {% endif %}      
+    <form method="POST">
+        {%  csrf_token %}
+        <label for="student_name">Name</label><br>
+        <input type="text" id="text" name="student_name" required><br>
+        <label for="student_age">Age</label><br>
+        <input type="number" id="student_age" name="student_age" min="5" max="20" required><br>
+        <label for="student_location">Location</label><br>
+        <input type="text" id="student_location" name="student_location" required><br>
+        <button type="submit">Submit Details</button>
+    </form>
+</body>
+</html>
